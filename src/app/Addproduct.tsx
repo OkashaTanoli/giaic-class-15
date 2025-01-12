@@ -30,7 +30,7 @@ function AddProduct() {
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     console.log("data ==>> ", data);
-    await client.create({
+    await client.create({ // Don't call create function on client side instead use route handlers or server actions 
       _type: 'product',
       title: data.title,
       price: data.price,
